@@ -1,14 +1,24 @@
 #include "../include/universo.hpp"
 
-Universo::Universo(int filas_min, int filas_max, int columnas_min, int columnas_max) {
-    mundo_ = new Mundo(filas_min, filas_max);
-}
+Universo::Universo(Mundo* mundo) : mundo_(mundo) {}
 
 Universo::~Universo() {
-    delete mundo_;
+    if (mundo_)
+        delete mundo_;
+
+    mundo_ = NULL;
 }
 
 Mundo* Universo::get_mundo(void) const { return mundo_; }
+
+void Universo::set_mundo(Mundo* mundo) {
+    if (mundo_)
+        delete mundo_;
+
+    mundo_ = NULL;
+
+    mundo_ = mundo; 
+}
 
 void Universo::controlar_tiempo(int segundos) {
     for (int i = 0; i < segundos; ++i) {
@@ -22,5 +32,8 @@ void Universo::pasar_turno(void) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Universo& universo) {
-    return os << *universo.get_mundo();
+    if (universo.get_mundo())
+        return os << *universo.get_mundo();
+    else
+        return os << "¡Todavía no ha sucedido el BIG BANG!";
 }

@@ -13,7 +13,7 @@ BIN_DIR =bin
 
 LIBS=-lm
 
-_OBJ = main.o universo.o mundo.o hormiga.o
+_OBJ = main.o universo.o mundo_infinito.o mundo_finito.o mundo.o hormiga.o
 OBJ = $(patsubst %,$(OBJECTS_DIR)/%,$(_OBJ))
 
 BIN_NAME = Langton
@@ -27,7 +27,13 @@ $(OBJECTS_DIR)/hormiga.o: $(SRC_DIR)/hormiga.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 	
 $(OBJECTS_DIR)/mundo.o: $(SRC_DIR)/mundo.cpp
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(OBJECTS_DIR)/mundo_finito.o: $(SRC_DIR)/mundo_finito.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)		
+
+$(OBJECTS_DIR)/mundo_infinito.o: $(SRC_DIR)/mundo_infinito.cpp
+	$(CC) -c -o $@ $< $(CFLAGS)			
 
 $(OBJECTS_DIR)/universo.o: $(SRC_DIR)/universo.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)	

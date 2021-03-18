@@ -1,14 +1,17 @@
-#include "mundo.hpp"
+#include "mundo_finito.hpp"
+#include "mundo_infinito.hpp"
 
 class Universo {
     private:
         Mundo* mundo_;
     
     public:
-        Universo(int = FILAS_MIN, int = FILAS_MAX, int = COLUMNAS_MIN, int = COLUMNAS_MAX);
+        Universo(Mundo* = NULL);
         ~Universo();
 
         Mundo* get_mundo(void) const;
+
+        void set_mundo(Mundo*);
 
         void controlar_tiempo(int);
 

@@ -1,29 +1,22 @@
 #pragma once
 
+#include <set>
+
 #include "hormiga.hpp"
-#include "vector.hpp"
 
-#define FILAS_MIN -5
-#define FILAS_MAX 1
-
-#define COLUMNAS_MIN -5
-#define COLUMNAS_MAX 1
-
-class Mundo : public Vector<Vector<celda*>> {
-    private:
+class Mundo {
+    protected:
         Hormiga hormiga_;
 
     public:
-        Mundo(int = FILAS_MIN, int = FILAS_MAX, int = COLUMNAS_MIN, int = COLUMNAS_MAX);
-        ~Mundo();
 
         Hormiga get_hormiga(void) const;
 
-        void set_hormiga(int, int);
-        
-        void crear_columnas(int);
+        virtual void set_hormiga(int, int) = 0;
 
-        void pasar_turno(void);
+        virtual void pasar_turno(void) = 0;
+
+        virtual std::ostream& write(std::ostream&) const = 0;
 };
 
 std::ostream& operator<<(std::ostream&, const Mundo&);

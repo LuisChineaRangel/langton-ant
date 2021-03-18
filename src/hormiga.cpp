@@ -1,7 +1,8 @@
 #include "../include/hormiga.hpp"
-#include "../include/mundo.hpp"
+#include "../include/mundo_finito.hpp"
+#include "../include/mundo_infinito.hpp"
 
-Hormiga::Hormiga(int fila, int columna) : movimiento_(arriba), posicion_(NULL), fila_(fila), columna_(columna) {}
+Hormiga::Hormiga(int fila, int columna, celda* posicion) : movimiento_(arriba), posicion_(posicion), fila_(fila), columna_(columna) {}
 
 Hormiga::~Hormiga() {}
 
@@ -17,7 +18,40 @@ void Hormiga::set_direccion(Direccion movimiento) { movimiento_ = movimiento; }
 
 void Hormiga::set_posicion(celda* posicion) { posicion_ = posicion; }
 
-void Hormiga::mover(Mundo& mundo) {
+void Hormiga::mover_finito(MundoFinito& mundo) {
+    if (!(*posicion_)) {
+        *posicion_ = true;
+
+        movimiento_ = Direccion((movimiento_ + 2) % ENUM_SIZE);
+    }
+    else {
+        *posicion_ = false;
+
+        if (Direccion(movimiento_ - 2) <= 0)
+            movimiento_ = arriba;
+        else
+            movimiento_ = Direccion(movimiento_ - 2);
+        
+    }
+
+    actualizar_pos();
+
+    if (fila_ < 0)
+        fila_ = mundo.size() - 1;
+
+    if (columna_ < 0)
+        columna_ = mundo[0].size() - 1;
+
+    if (fila_ >= mundo.size())
+        fila_ = 0;
+
+    if (columna_ >= mundo[0].size())
+        columna_ = 0; 
+
+    posicion_ = mundo[fila_][columna_];
+}
+
+void Hormiga::mover_infinito(MundoInfinito& mundo) {
     if (!(*posicion_)) {
         *posicion_ = true;
         movimiento_ = Direccion((movimiento_ + 1) % ENUM_SIZE);
@@ -31,51 +65,22 @@ void Hormiga::mover(Mundo& mundo) {
             movimiento_ = Direccion(movimiento_ - 1);
     }
 
-    actualizar_pos(mundo);
+    actualizar_pos();
 
     // Redimensionar Filas
-    if (fila_ >= mundo.get_end()) {
-        mundo.resize(mundo.get_begin(), fila_ + 1);
-
-        mundo.crear_columnas(fila_);
-    }
-    else if (fila_ < mundo.get_begin()) {
-        mundo.resize(fila_, mundo.get_end());
-
-        mundo.crear_columnas(mundo.get_end() - 1);
-
-        for (int i = mundo.get_end() - 1; i > mundo.get_begin(); --i) {
-            for (int j = mundo[i].get_begin(); j < mundo[i].get_end(); ++j) {
-                *mundo[i][j] = *mundo[i - 1][j];
-            }
-        }
-
-        //for (int i = mundo[mundo.get_begin()].get_begin(); i < mundo[mundo.get_begin()].get_end(); ++i) {
-        //    *mundo[mundo.get_begin()][i] = false;
-        //}
-    }
+    mundo.resize_fila(fila_);
     
-    // Redimensionar columnas
-    if (columna_ >= mundo[mundo.get_begin()].get_end()) {
-        for (int i = mundo.get_begin(); i < mundo.get_end(); ++i) {
-            mundo[i].resize(mundo[i].get_begin(), columna_ + 1);
-            mundo[i][columna_] = new celda(false);
-        }
-    }
-    else if (columna_ < mundo[mundo.get_begin()].get_begin()) {
-        for (int i = mundo.get_begin(); i < mundo.get_end(); ++i) {
-            mundo[i].resize(columna_, mundo[i].get_end());
-
-            mundo[i][mundo[mundo.get_begin()].get_end() - 1] = new celda(false);
-
-            for (int j = mundo[mundo.get_begin()].get_end() - 1; j > mundo[mundo.get_begin()].get_begin(); --j) {
-                *mundo[i][j] = *mundo[i][j - 1];
-            }
-            *mundo[i][mundo[mundo.get_begin()].get_begin()] = false;
-        }
-    }
+    // Redimensionar Columnas
+    mundo.resize_columna(columna_);
 
     posicion_ = mundo[fila_][columna_];
+}
+
+bool Hormiga::operator<(const Hormiga& hormiga) const {
+    if ((fila_ < hormiga.get_fila()) || ((fila_ == hormiga.get_fila()) && (columna_ < hormiga.get_columna())))
+        return true;
+
+    return false;
 }
 
 Hormiga& Hormiga::operator=(const Hormiga& hormiga) {
@@ -87,7 +92,7 @@ Hormiga& Hormiga::operator=(const Hormiga& hormiga) {
     return (*this);
 }
 
-void Hormiga::actualizar_pos(Mundo& mundo) {
+void Hormiga::actualizar_pos(void) {
     if ((movimiento_ == arriba_izquierda) || (movimiento_ == arriba_derecha) || (movimiento_ == arriba))  
         --fila_;
     
