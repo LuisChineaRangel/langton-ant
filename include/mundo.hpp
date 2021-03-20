@@ -1,20 +1,19 @@
 #pragma once
 
-#include <set>
+#include <list>
 
 #include "hormiga.hpp"
 
 class Mundo {
     protected:
-        Hormiga hormiga_;
+        std::list<Hormiga> hormiguero_;
 
     public:
-
-        Hormiga get_hormiga(void) const;
+        std::list<Hormiga> get_hormiguero(void) const;
 
         virtual void set_hormiga(int, int) = 0;
 
-        virtual void pasar_turno(void) = 0;
+        void pasar_turno(void);
 
         virtual std::ostream& write(std::ostream&) const = 0;
 };

@@ -13,8 +13,8 @@ class Vector : public std::vector<T> {
         Vector(int = 0, int = 0);
         ~Vector();
 
-        int get_begin(void) const;
-        int get_end(void) const;
+        int begin(void) const;
+        int end(void) const;
 
         void resize(int, int);
 
@@ -31,10 +31,10 @@ template <class T>
 Vector<T>::~Vector() {}
 
 template <class T>
-int Vector<T>::get_begin(void) const { return begin_; }
+int Vector<T>::begin(void) const { return begin_; }
 
 template <class T>
-int Vector<T>::get_end(void) const { return end_; }
+int Vector<T>::end(void) const { return end_; }
 
 template <class T>
 void Vector<T>::resize(int begin, int end) {

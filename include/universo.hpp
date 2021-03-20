@@ -17,6 +17,8 @@ class Universo {
 
     private:
         void pasar_turno(void);
+
+        void destroy(void);
 };
 
 std::ostream& operator<<(std::ostream&, const Universo&);

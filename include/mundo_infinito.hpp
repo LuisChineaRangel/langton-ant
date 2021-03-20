@@ -4,17 +4,17 @@
 #include "hormiga.hpp"
 #include "vector.hpp"
 
-#define FILAS_MIN -5
-#define FILAS_MAX 1
+#define FILAS_MIN -10
+#define FILAS_MAX 10
 
-#define COLUMNAS_MIN -5
-#define COLUMNAS_MAX 1
+#define COLUMNAS_MIN -10
+#define COLUMNAS_MAX 10
 
-class MundoInfinito : public Mundo, public Vector<Vector<celda*>> {
+class MundoInfinito : public Mundo, public Vector<Vector<Celda>> {
     private:
         
     public:
-        MundoInfinito(int = FILAS_MIN, int = FILAS_MAX, int = COLUMNAS_MIN, int = COLUMNAS_MAX);
+        MundoInfinito(int = FILAS_MIN, int = FILAS_MAX, int = COLUMNAS_MIN, int = COLUMNAS_MAX, std::list<Hormiga> = std::list<Hormiga>());
         ~MundoInfinito();
         
         void set_hormiga(int, int);
@@ -24,10 +24,7 @@ class MundoInfinito : public Mundo, public Vector<Vector<celda*>> {
         void resize_fila(int);
         void resize_columna(int);
 
-        void pasar_turno(void);
-
         std::ostream& write(std::ostream&) const;
 };
 
 std::ostream& write_border(std::ostream&, const MundoInfinito&);
-std::ostream& operator<<(std::ostream&, const MundoInfinito&);

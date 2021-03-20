@@ -1,100 +1,87 @@
 #include "../include/mundo_infinito.hpp"
 
-MundoInfinito::MundoInfinito(int filas_min, int filas_max, int columnas_min, int columnas_max) {
+MundoInfinito::MundoInfinito(int filas_min, int filas_max, int columnas_min, int columnas_max, std::list<Hormiga> hormiguero) {
     (*this).resize(filas_min, filas_max);
 
     for (int i = filas_min; i < filas_max; ++i) {
         (*this)[i].resize(columnas_min, columnas_max);
-        for (int j = columnas_min; j < columnas_max; ++j) {
-            (*this)[i][j] = new celda(false);
-        }
     }
 
-    set_hormiga(filas_min, columnas_min);
-}
-
-MundoInfinito::~MundoInfinito() {
-    for (int i = (*this).get_begin(); i < (*this).get_end(); ++i) {
-        for (int j = (*this)[i].get_begin(); j < (*this)[i].get_end(); ++j) {
-            delete (*this)[i][j];
-        }
+    for (std::list<Hormiga>::iterator it = hormiguero.begin(); it != hormiguero.end(); ++it) {
+        set_hormiga((*it).get_fila(), (*it).get_columna());
     }
 }
+
+MundoInfinito::~MundoInfinito() {}
 
 void MundoInfinito::set_hormiga(int fila, int columna) {
-    hormiga_ = Hormiga(fila, columna, (*this)[fila][columna]);
-    //hormigas_.insert(Hormiga(fila, columna, (*this)[fila][columna]));
+    hormiguero_.push_back(Hormiga(fila, columna, &(*this)[fila][columna]));
 }
 
 void MundoInfinito::crear_columnas(int fila) {
-
-    (*this)[fila].resize((*this)[get_begin()].get_begin(), (*this)[get_begin()].get_end());
-    for (int i = (*this)[get_begin()].get_begin(); i < (*this)[get_begin()].get_end(); ++i) {
-        (*this)[fila][i] = new celda(false);
-    }
+    (*this)[fila].resize((*this)[begin()].begin(), (*this)[begin()].end());
 }
 
 void MundoInfinito::resize_fila(int fila) {
-    if (fila >= get_end()) {
-        resize(get_begin(), fila + 1);
+    if (fila >= end()) {
+        resize(begin(), fila + 1);
 
         crear_columnas(fila);
     }
-    else if (fila < get_begin()) {
-        resize(fila, get_end());
+    else if (fila < begin()) {
+        resize(fila, end());
 
-        crear_columnas(get_end() - 1);
+        crear_columnas(end() - 1);
 
-        for (int i = get_end() - 1; i > get_begin(); --i)
-            for (int j = (*this)[i].get_begin(); j < (*this)[i].get_end(); ++j)
-                *(*this)[i][j] = *(*this)[i - 1][j];
+        for (int i = end() - 1; i > begin(); --i)
+            for (int j = (*this)[i].begin(); j < (*this)[i].end(); ++j)
+                (*this)[i][j] = (*this)[i - 1][j];
 
-        for (int i = (*this)[get_begin()].get_end() - 1; i > (*this)[get_begin()].get_begin(); --i)
-            *(*this)[get_begin()][i] = false;
+        for (int i = (*this)[begin()].end() - 1; i > (*this)[begin()].begin(); --i)
+            (*this)[begin()][i] = blanco;
     }
 }
 
 void MundoInfinito::resize_columna(int columna) {
-    if (columna >= (*this)[get_begin()].get_end()) {
-        for (int i = get_begin(); i < get_end(); ++i) {
-            (*this)[i].resize((*this)[i].get_begin(), columna + 1);
-            (*this)[i][columna] = new celda(false);
+    if (columna >= (*this)[begin()].end()) {
+        for (int i = begin(); i < end(); ++i) {
+            (*this)[i].resize((*this)[i].begin(), columna + 1);
         }
     }
-    else if (columna < (*this)[get_begin()].get_begin()) {
-        for (int i = get_begin(); i < get_end(); ++i) {
-            (*this)[i].resize(columna, (*this)[i].get_end());
+    else if (columna < (*this)[begin()].begin()) {
+        for (int i = begin(); i < end(); ++i) {
+            (*this)[i].resize(columna, (*this)[i].end());
 
-            (*this)[i][(*this)[get_begin()].get_end() - 1] = new celda(false);
-
-            for (int j = (*this)[get_begin()].get_end() - 1; j > (*this)[get_begin()].get_begin(); --j) {
-                *(*this)[i][j] = *(*this)[i][j - 1];
+            for (int j = (*this)[begin()].end() - 1; j > (*this)[begin()].begin(); --j) {
+                (*this)[i][j] = (*this)[i][j - 1];
             }
-            *(*this)[i][(*this)[get_begin()].get_begin()] = false;
+            (*this)[i][(*this)[begin()].begin()] = blanco;
         }
     }
-}
-
-void MundoInfinito::pasar_turno(void) {
-    hormiga_.mover_infinito(*this);
 }
 
 std::ostream& MundoInfinito::write(std::ostream& os) const {
     write_border(os, (*this));
     os << std::endl;
 
-    for (int i = get_begin(); i < get_end(); ++i) {
+    for (int i = begin(); i < end(); ++i) {
         os << "|";
-        for (int j = (*this)[get_begin()].get_begin(); j < (*this)[get_begin()].get_end(); ++j) {
-            if ((*this)[i][j] == get_hormiga().get_posicion()) {
-                os << get_hormiga();
+        for (int j = (*this)[begin()].begin(); j < (*this)[begin()].end(); ++j) {
+            const Hormiga* hormiga = NULL;
+
+            for (std::list<Hormiga>::const_iterator it = hormiguero_.begin(); it != hormiguero_.end(); ++it) {
+                if (&(*this)[i][j] == (*it).get_posicion()) {
+                    hormiga = &(*it); 
+                    break;
+                }
             }
-            else if (!(*(*this)[i][j])) {
+
+            if (hormiga)
+                os << *hormiga;
+            else if ((*this)[i][j] == blanco)
                 os << " ";
-            }
-            else {
+            else
                 os << "X";
-            }
         }
         os << "|" << std::endl;
     }
@@ -105,13 +92,9 @@ std::ostream& MundoInfinito::write(std::ostream& os) const {
 }
 
 std::ostream& write_border(std::ostream& os, const MundoInfinito& mundo) {
-    for (int i = 0; i <= mundo[mundo.get_begin()].size() + 1; i++) {
+    for (int i = 0; i <= mundo[mundo.begin()].size() + 1; i++) {
         os << "-";
     }
 
     return os;
-}
-
-std::ostream& operator<<(std::ostream& os, const MundoInfinito& mundo) {
-    return mundo.write(os);
 }

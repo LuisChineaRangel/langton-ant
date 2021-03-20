@@ -8,17 +8,14 @@
 #define SIZE_FILAS 25
 #define SIZE_COLUMNAS 25
 
-class MundoFinito : public Mundo, public std::vector<std::vector<celda*>> {
+class MundoFinito : public Mundo, public std::vector<std::vector<Celda>> {
     public:
-        MundoFinito(unsigned = SIZE_FILAS, unsigned = SIZE_COLUMNAS);  // Cambios
+        MundoFinito(unsigned = SIZE_FILAS, unsigned = SIZE_COLUMNAS, std::list<Hormiga> = std::list<Hormiga>());  // Cambios
         ~MundoFinito();
 
         void set_hormiga(int, int);
-
-        void pasar_turno(void);
 
         std::ostream& write(std::ostream&) const;
 };
 
 std::ostream& write_border(std::ostream&, const MundoFinito&);   // Cambio chorra
-std::ostream& operator<<(std::ostream&, const MundoFinito&);

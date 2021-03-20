@@ -1,41 +1,24 @@
 #include "../include/mundo_finito.hpp"
 
-MundoFinito::MundoFinito(unsigned filas, unsigned columnas) {
+MundoFinito::MundoFinito(unsigned filas, unsigned columnas, std::list<Hormiga> hormiguero) {
     (*this).resize(filas);
 
     for (unsigned i = 0; i < filas; ++i) {
         (*this)[i].resize(columnas);
         for (unsigned j = 0; j < columnas; ++j) {
-            (*this)[i][j] = new celda(false);
+            (*this)[i][j] = blanco;
         }
     }
 
-    set_hormiga(0, 0);
-
-    /*
-    hormigas_ = hormigas;
-
-    for (std::set<Hormiga>::iterator it = hormigas_.begin(); it != hormigas_.end(); ++it) {
-        (*it).set_posicion((*it).get_fila(), (*it).get_columna());
-    }*/
-}
-
-MundoFinito::~MundoFinito() {
-    for (unsigned i = 0; i < (*this).size(); ++i) {
-        for (unsigned j = 0; j < (*this)[i].size(); ++j) {
-            delete (*this)[i][j];
-        }
+    for (std::list<Hormiga>::iterator it = hormiguero.begin(); it != hormiguero.end(); ++it) {
+        set_hormiga((*it).get_fila(), (*it).get_columna());
     }
 }
+
+MundoFinito::~MundoFinito() {}
 
 void MundoFinito::set_hormiga(int fila, int columna) {
-    hormiga_ = Hormiga(fila, columna, (*this)[fila][columna]);
-    //hormigas_.insert(Hormiga(fila, columna, (*this)[fila][columna]));
-}
-
-void MundoFinito::pasar_turno(void) {
-    // Se deberá recorrer la lista de hormigas, y actualizar la posición de cada una de ellas
-    hormiga_.mover_finito(*this);
+    hormiguero_.push_back(Hormiga(fila, columna, &(*this)[fila][columna]));
 }
 
 std::ostream& MundoFinito::write(std::ostream& os) const {
@@ -45,15 +28,22 @@ std::ostream& MundoFinito::write(std::ostream& os) const {
     for (unsigned i = 0; i < size(); ++i) {
         os << "|";
         for (unsigned j = 0; j < (*this)[i].size(); ++j) {
-            if ((*this)[i][j] == get_hormiga().get_posicion()) {
-                os << get_hormiga();
+            
+            const Hormiga* hormiga = NULL;
+
+            for (std::list<Hormiga>::const_iterator it = hormiguero_.begin(); it != hormiguero_.end(); ++it) {
+                if (&(*this)[i][j] == (*it).get_posicion()) {
+                    hormiga = &(*it); 
+                    break;
+                }
             }
-            else if (!(*(*this)[i][j])) {
+
+            if (hormiga)
+                os << *hormiga;
+            else if ((*this)[i][j] == blanco)
                 os << " ";
-            }
-            else {
+            else
                 os << "X";
-            }
         }
         os << "|" << std::endl;
     }
@@ -67,8 +57,4 @@ std::ostream& write_border(std::ostream& os, const MundoFinito& mundo) {
         os << "-";
     }
     return os;
-}
-
-std::ostream& operator<<(std::ostream& os, const MundoFinito& mundo) {
-    return mundo.write(os);
 }
