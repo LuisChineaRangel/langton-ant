@@ -14,6 +14,8 @@ int Hormiga::get_fila(void) const { return fila_; }
 
 int Hormiga::get_columna(void) const { return columna_; }
 
+void Hormiga::set_posicion(Celda* posicion) { posicion_ = posicion; }
+
 void Hormiga::actualizar(Mundo* mundo) {
     if (*posicion_ == blanco) {
         *posicion_ = negro;
@@ -26,6 +28,20 @@ void Hormiga::actualizar(Mundo* mundo) {
     }
 
     desplazar(mundo);
+}
+
+void Hormiga::corregir_posicion(const Mundo* mundo) {
+    if (fila_ < 0)
+        fila_ = (*mundo).size() - 1;
+
+    if (columna_ < 0)
+        columna_ = (*mundo)[0].size() - 1;
+
+    if (fila_ >= (*mundo).size())
+        fila_ = 0;
+
+    if (columna_ >= (*mundo)[0].size())
+        columna_ = 0;
 }
 
 std::ostream& Hormiga::write(std::ostream& os) const {
@@ -59,28 +75,7 @@ Hormiga& Hormiga::operator=(const Hormiga& hormiga) {
     return (*this);
 }
 
-void Hormiga::girar(Celda color, Mundo* mundo) {
-    int desplazamiento = 0;
-    
-    if (typeid(*mundo) == typeid(MundoFinito))
-        desplazamiento = 2;
-    else if (typeid(*mundo) == typeid(MundoInfinito))
-        desplazamiento = 1;
-
-    switch (color) {
-        case blanco:
-            movimiento_ = Direccion((movimiento_ + desplazamiento) % ENUM_SIZE);
-            break;
-        case negro:
-            if (Direccion(movimiento_ - desplazamiento) <= 0)
-                movimiento_ = arriba;
-            else
-                movimiento_ = Direccion(movimiento_ - desplazamiento);
-            break;
-    }
-}
-
-void Hormiga::desplazar(Mundo* mundo) {
+void Hormiga::actualizar_coordendas(void) {
     if ((movimiento_ == arriba_izquierda) || (movimiento_ == arriba_derecha) || (movimiento_ == arriba))  
         --fila_;
     
@@ -92,33 +87,6 @@ void Hormiga::desplazar(Mundo* mundo) {
 
     if ((movimiento_ == abajo_derecha) || (movimiento_ == arriba_derecha) || (movimiento_ == derecha))
         ++columna_;
-
-    if (typeid(*mundo) == typeid(MundoFinito)) {
-        corregir_posicion(*dynamic_cast<MundoFinito*>(mundo));
-
-        posicion_ = &(*dynamic_cast<MundoFinito*>(mundo))[fila_][columna_];
-    }
-    else if (typeid(*mundo) == typeid(MundoInfinito)) {
-
-        dynamic_cast<MundoInfinito*>(mundo) -> resize_fila(fila_);
-        dynamic_cast<MundoInfinito*>(mundo) -> resize_columna(columna_);
-
-        posicion_ = &(*dynamic_cast<MundoInfinito*>(mundo))[fila_][columna_];
-    }
-}
-
-void Hormiga::corregir_posicion(const MundoFinito mundo) {
-    if (fila_ < 0)
-        fila_ = mundo.size() - 1;
-
-    if (columna_ < 0)
-        columna_ = mundo[0].size() - 1;
-
-    if (fila_ >= mundo.size())
-        fila_ = 0;
-
-    if (columna_ >= mundo[0].size())
-        columna_ = 0;
 }
 
 std::ostream& operator<<(std::ostream& os, const Hormiga& hormiga) {

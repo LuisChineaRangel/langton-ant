@@ -1,21 +1,18 @@
 #include "../include/mundo_infinito.hpp"
 
-MundoInfinito::MundoInfinito(int filas_min, int filas_max, int columnas_min, int columnas_max, std::list<Hormiga> hormiguero) {
+MundoInfinito::MundoInfinito(int filas_min, int filas_max, int columnas_min, int columnas_max, std::list<Hormiga*> hormiguero) {
     (*this).resize(filas_min, filas_max);
 
     for (int i = filas_min; i < filas_max; ++i) {
         (*this)[i].resize(columnas_min, columnas_max);
     }
 
-    for (std::list<Hormiga>::iterator it = hormiguero.begin(); it != hormiguero.end(); ++it) {
-        set_hormiga((*it).get_fila(), (*it).get_columna());
+    for (std::list<Hormiga*>::iterator it = hormiguero.begin(); it != hormiguero.end(); ++it) {
+        if (typeid(*it) == typeid(HormigaA))
+            set_hormiga((*it) -> get_fila(), (*it) -> get_columna(), false);
+        else
+            set_hormiga((*it) -> get_fila(), (*it) -> get_columna(), true);
     }
-}
-
-MundoInfinito::~MundoInfinito() {}
-
-void MundoInfinito::set_hormiga(int fila, int columna) {
-    hormiguero_.push_back(Hormiga(fila, columna, &(*this)[fila][columna]));
 }
 
 void MundoInfinito::crear_columnas(int fila) {
@@ -58,43 +55,4 @@ void MundoInfinito::resize_columna(int columna) {
             (*this)[i][(*this)[begin()].begin()] = blanco;
         }
     }
-}
-
-std::ostream& MundoInfinito::write(std::ostream& os) const {
-    write_border(os, (*this));
-    os << std::endl;
-
-    for (int i = begin(); i < end(); ++i) {
-        os << "|";
-        for (int j = (*this)[begin()].begin(); j < (*this)[begin()].end(); ++j) {
-            const Hormiga* hormiga = NULL;
-
-            for (std::list<Hormiga>::const_iterator it = hormiguero_.begin(); it != hormiguero_.end(); ++it) {
-                if (&(*this)[i][j] == (*it).get_posicion()) {
-                    hormiga = &(*it); 
-                    break;
-                }
-            }
-
-            if (hormiga)
-                os << *hormiga;
-            else if ((*this)[i][j] == blanco)
-                os << " ";
-            else
-                os << "X";
-        }
-        os << "|" << std::endl;
-    }
-
-    write_border(os, (*this));
-
-    return os;
-}
-
-std::ostream& write_border(std::ostream& os, const MundoInfinito& mundo) {
-    for (int i = 0; i <= mundo[mundo.begin()].size() + 1; i++) {
-        os << "-";
-    }
-
-    return os;
 }

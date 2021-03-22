@@ -3,6 +3,15 @@
 #include <vector>
 #include <cstdlib>
 #include <cassert>
+#include <exception>
+
+class WrongIndex : public std::exception {
+    public:
+		virtual const char* what() const throw()
+		{
+			return "Wrong Index";
+		}
+};
 
 template <class T>
 class Vector : public std::vector<T> {
@@ -48,12 +57,16 @@ void Vector<T>::resize(int begin, int end) {
 
 template <class T>
 T& Vector<T>::operator[](int pos) {
-    assert((pos >= begin_) && (pos < end_));
+    if ((pos < begin_) || (pos >= end_))
+        throw WrongIndex();
+
     return ((std::vector<T>&)*this)[pos - begin_];
 }
 
 template <class T>
 T& Vector<T>::operator[](int pos) const {
-    assert((pos >= begin_) && (pos < end_));
+    if ((pos < begin_) || (pos >= end_))
+        throw WrongIndex();
+
     return ((std::vector<T>&)*this)[pos - begin_];
 }

@@ -2,20 +2,26 @@
 
 #include <list>
 
-#include "hormiga.hpp"
+#include "hormigaA.hpp"
+#include "hormigaB.hpp"
+#include "vector.hpp"
 
-class Mundo {
+class Mundo : public Vector<Vector<Celda>>{
     protected:
-        std::list<Hormiga> hormiguero_;
+        std::list<Hormiga*> hormiguero_;
 
     public:
-        std::list<Hormiga> get_hormiguero(void) const;
+        Mundo(void);
+        ~Mundo();
 
-        virtual void set_hormiga(int, int) = 0;
+        std::list<Hormiga*> get_hormiguero(void) const;
+
+        virtual void set_hormiga(int, int, bool);
 
         void pasar_turno(void);
 
-        virtual std::ostream& write(std::ostream&) const = 0;
+        std::ostream& write(std::ostream&) const;
 };
 
+std::ostream& write_border(std::ostream&, const Mundo&);
 std::ostream& operator<<(std::ostream&, const Mundo&);
