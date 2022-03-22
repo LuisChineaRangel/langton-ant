@@ -1,57 +1,42 @@
-YELLOW=\033[1;33m
-BLUE=\033[0;32m
-DEF=\033[0m
+#################################################
+# MAKEFILE
+#################################################
 
-CC=g++
-CFLAGS=-std=c++11 -g
+CXX		 := g++
+CXXFLAGS := -std=c++11 -pthread
 
-INCLUDE_DIR =include
-OBJECTS_DIR=build
-SRC_DIR =src
-LIB_DIR =lib
-BIN_DIR =bin
+BIN     := bin
+SRC     := src
+BUILD		:= build
+INCLUDE := -Iinclude
+LIB     := -Llib
+EXECUTABLE  := $(notdir $(CURDIR))
 
-LIBS=-lm
+SOURCES := $(wildcard $(SRC)/*.cpp)
+OBJS	:= $(patsubst $(SRC)/%.cpp,$(BUILD)/%.o,$(SOURCES))
 
-_OBJ = main.o universo.o mundo_infinito.o mundo_finito.o mundo.o hormigaB.o hormigaA.o hormiga.o
-OBJ = $(patsubst %,$(OBJECTS_DIR)/%,$(_OBJ))
+.PHONY: all project run clean
 
-BIN_NAME = Langton
+all: $(BIN)/$(EXECUTABLE)
 
-all: Langton
+$(BIN)/$(EXECUTABLE): $(OBJS)
+	@echo "🚧 Building..."
+	$(CXX) -o $@ $(CXXFLAGS) $(LIB) $(OBJS)
 
-Langton: $(OBJ)
-	$(CC) -o $(BIN_DIR)/$(BIN_NAME) $^ $(CFLAGS) $(LIBS)
+$(BUILD)/%.o: $(SRC)/%.cpp
+	@echo "🚧 Building..."
+	$(CXX) -c $(INCLUDE) -o $@ $(CXXFLAGS) $<
 
-$(OBJECTS_DIR)/hormiga.o: $(SRC_DIR)/hormiga.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(OBJECTS_DIR)/hormigaA.o: $(SRC_DIR)/hormigaA.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(OBJECTS_DIR)/hormigaB.o: $(SRC_DIR)/hormigaB.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
-	
-$(OBJECTS_DIR)/mundo.o: $(SRC_DIR)/mundo.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(OBJECTS_DIR)/mundo_finito.o: $(SRC_DIR)/mundo_finito.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)		
-
-$(OBJECTS_DIR)/mundo_infinito.o: $(SRC_DIR)/mundo_infinito.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)			
-
-$(OBJECTS_DIR)/universo.o: $(SRC_DIR)/universo.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)	
-
-$(OBJECTS_DIR)/main.o: $(SRC_DIR)/main.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
+project:
+	clear
+	@echo "📁 Creating Project Structure..."
+	mkdir -p bin build include src
 
 run:
-	./$(BIN_DIR)/$(BIN_NAME)
-
-.PHONY: clean
+	clear
+	@echo "🚀 Executing..."
+	./$(BIN)/$(EXECUTABLE)
 
 clean:
-	@rm -f $(OBJECTS_DIR)/*.o *~ $(BIN_DIR)/*~ $(BIN_DIR)/*.exe
-	@echo -e "${BLUE}Make: ${YELLOW}Objects Files and Executables cleaned!${DEF}"
+	@echo "🧹 Clearing..."
+	rm -f $(BIN)/* $(BUILD)/*
