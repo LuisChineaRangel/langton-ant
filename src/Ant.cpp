@@ -1,6 +1,7 @@
 /// @file Ant.cpp
 /// @brief Ant Class Source Code
 #include "Ant.hpp"
+
 #include "Grid.hpp"
 #include "SmartVector.hpp"
 
@@ -9,6 +10,9 @@
 ///////////////////////////////////////////////////////
 
 /// @brief Default Constructor. Initializes ant behavior and attributes
+/// @param grid Pointer of Grid where ant is located
+/// @param row Ant row on grid
+/// @param column Ant column on grid
 Ant::Ant(Grid *grid, size_t row, size_t column)
     : dir_(up), sprite_("↑"), grid_(grid), row_(row), column_(column) {
   Position().taken_ = true;
@@ -61,42 +65,44 @@ void Ant::Move(void) {
 /// @return Void
 void Ant::Rotate(void) {
   switch (static_cast<int>(Position().color_)) {
-  case white:
-    dir_ = static_cast<Direction>((dir_ + 1) % NUM_DIR);
-    break;
-  case black:
-    dir_ = ((dir_ - 1) % NUM_DIR) < 0 ? static_cast<Direction>(NUM_DIR - 1)
-                                      : static_cast<Direction>(dir_ - 1);
-    break;
+    case white:
+      dir_ = static_cast<Direction>((dir_ + 1) % NUM_DIR);
+      break;
+    case black:
+      dir_ = ((dir_ - 1) % NUM_DIR) < 0 ? static_cast<Direction>(NUM_DIR - 1)
+                                        : static_cast<Direction>(dir_ - 1);
+      break;
   }
 
   switch (dir_) {
-  case up:
-    sprite_ = "↑";
-    --row_;
-    break;
-  case left:
-    sprite_ = "←";
-    --column_;
-    break;
-  case down:
-    sprite_ = "↓";
-    ++row_;
-    break;
-  case right:
-    sprite_ = "→";
-    ++column_;
-    break;
-  default:
-    break;
+    case up:
+      sprite_ = "↑";
+      --row_;
+      break;
+    case left:
+      sprite_ = "←";
+      --column_;
+      break;
+    case down:
+      sprite_ = "↓";
+      ++row_;
+      break;
+    case right:
+      sprite_ = "→";
+      ++column_;
+      break;
+    default:
+      break;
   }
 }
 
 /// @brief Position Method
+/// @return Cell where Ant is located
 Cell &Ant::Position(void) { return (*grid_)[row_][column_]; }
 
 /// @brief Write Method
-/// @return Ant's direction
+/// @param os Outputstream
+/// @return Ant's Sprite
 std::ostream &Ant::Write(std::ostream &os) const { return os << sprite_; }
 
 /// @brief Assignation operator Overload
@@ -120,7 +126,7 @@ void Ant::SwitchCellColor(Cell &cell) const {
 ///////////////////////////////////////////////////////
 
 /// @brief Output operator Overload
-/// @param os Outputstream which is going to write ant
+/// @param os Outputstream
 /// @param ant Langton's Ant to write
 /// @return Ant's direction
 std::ostream &operator<<(std::ostream &os, const Ant &ant) {

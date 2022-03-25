@@ -30,6 +30,7 @@
         <li><a href="#download-and-installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#bugs">Usage</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#license">License</a></li>
@@ -69,6 +70,12 @@ Latest release can be found at [here](https://github.com/iluzioDev/langton-ant/r
    ```sh
    make run
    ```
+
+## Usage
+
+Once launched, the user will be prompted to input the dimensions (rows and columns) of a MxN Grid.
+
+The program will introduce a Langton's Ant at the center of the grid, in order to move it with the defined behavior until the user exits by pressing *enter*.
 
 ## Bugs
 
