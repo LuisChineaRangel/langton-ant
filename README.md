@@ -77,6 +77,8 @@ Once launched, the user will be prompted to input the dimensions (rows and colum
 
 The program will introduce a Langton's Ant at the center of the grid, in order to move it with the defined behavior until the user exits by pressing *enter*.
 
+https://user-images.githubusercontent.com/45295283/160031536-35970507-6d9e-4089-887f-0fcff2fbbd99.mp4
+
 ## Bugs
 
 Please report all bugs [here](https://github.com/iluzioDev/langton-ant/issues). If appropriate, please attach a small test volume which you think Langton's Ant isn't handling correctly.
