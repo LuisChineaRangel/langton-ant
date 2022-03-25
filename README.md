@@ -3,6 +3,7 @@
   <h3 align="center">Langton's Ant</h3>
 
   <p align="center">
+    A Pattern Research Study in C++
     <br />
     <a href="https://github.com/iluzioDev/langton-ant"><strong>Explore the docs »</strong></a>
     <br />
