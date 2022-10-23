@@ -1,0 +1,75 @@
+\hypertarget{ant_8hpp}{}\doxysection{include/ant.hpp File Reference}
+\label{ant_8hpp}\index{include/ant.hpp@{include/ant.hpp}}
+
+
+\mbox{\hyperlink{class_ant}{Ant}} Class Header.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_cell}{Cell}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_grid}{Grid}}\textquotesingle{}s Squares in which the Langton\textquotesingle{}s ant travels. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_ant}{Ant}}
+\begin{DoxyCompactList}\small\item\em Represents a Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}}. It defines the ant behavior and stores the current position and direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{Indent}\textbf{ Color Enum}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ant_8hpp_ab87bacfdad76e61b9412d7124be44c1c}\label{ant_8hpp_ab87bacfdad76e61b9412d7124be44c1c}} 
+enum \mbox{\hyperlink{ant_8hpp_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \{ {\bfseries black}
+, {\bfseries white}
+, {\bfseries NUM\+\_\+\+CELL}
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_grid}{Grid}}\textquotesingle{}s cells color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Direction Structure}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}\label{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}} 
+enum \mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \{ \newline
+{\bfseries up}
+, {\bfseries left}
+, {\bfseries down}
+, {\bfseries right}
+, \newline
+{\bfseries NUM\+\_\+\+DIR}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible directions for the ant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{ant_8hpp_a47928fa804f0fb2934dd641d502b744e}{operator$<$$<$}} (std\+::ostream \&, const \mbox{\hyperlink{class_ant}{Ant}} \&)
+\begin{DoxyCompactList}\small\item\em Output operator Overload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_ant}{Ant}} Class Header. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ant_8hpp_a47928fa804f0fb2934dd641d502b744e}\label{ant_8hpp_a47928fa804f0fb2934dd641d502b744e}} 
+\index{ant.hpp@{ant.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ant.hpp@{ant.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_ant}{Ant}} \&}]{ant }\end{DoxyParamCaption})}
+
+
+
+Output operator Overload. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Outputstream \\
+\hline
+{\em ant} & Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}} to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_ant}{Ant}}\textquotesingle{}s direction 
+\end{DoxyReturn}

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2020 Luis Marcelo
+Copyright (c) 2022 Luis Chinea Rangel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

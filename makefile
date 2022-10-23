@@ -1,42 +1,40 @@
-#################################################
-# MAKEFILE
-#################################################
+ifdef OS
+   RM = del /Q
+   FixPath = $(subst /,\,$1)
+else
+   ifeq ($(shell uname), Linux)
+      RM = rm -f
+      FixPath = $1
+   endif
+endif
 
 CXX		 := g++
-CXXFLAGS := -std=c++11 -pthread
+CXXFLAGS := -std=c++11
 
 BIN     := bin
 SRC     := src
 BUILD		:= build
-INCLUDE := -Iinclude
-LIB     := -Llib
+INCLUDE := include
+LIB     := lib
+LIBRARIES := 
 EXECUTABLE  := $(notdir $(CURDIR))
 
 SOURCES := $(wildcard $(SRC)/*.cpp)
 OBJS	:= $(patsubst $(SRC)/%.cpp,$(BUILD)/%.o,$(SOURCES))
 
-.PHONY: all project run clean
+.PHONY: all clean
 
 all: $(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(OBJS)
 	@echo "🚧 Building..."
-	$(CXX) -o $@ $(CXXFLAGS) $(LIB) $(OBJS)
+	$(CXX) -o $@ $(CXXFLAGS) -L$(LIB) $(OBJS)
 
 $(BUILD)/%.o: $(SRC)/%.cpp
 	@echo "🚧 Building..."
-	$(CXX) -c $(INCLUDE) -o $@ $(CXXFLAGS) $<
-
-project:
-	clear
-	@echo "📁 Creating Project Structure..."
-	mkdir -p bin build include src
-
-run:
-	clear
-	@echo "🚀 Executing..."
-	./$(BIN)/$(EXECUTABLE)
+	$(CXX) -c -o $@ $(CXXFLAGS) $<
 
 clean:
 	@echo "🧹 Clearing..."
-	rm -f $(BIN)/* $(BUILD)/*
+	$(RM) $(call FixPath,bin/*)
+	$(RM) $(call FixPath,build/*)

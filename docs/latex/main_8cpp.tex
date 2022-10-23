@@ -1,0 +1,123 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Program Main File ~\newline
+  
+
+
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include \char`\"{}../include/grid.\+hpp\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a611cc9b5f655508482f3d7a9751c182a}\label{main_8cpp_a611cc9b5f655508482f3d7a9751c182a}} 
+\#define {\bfseries CLEAR}~\char`\"{}clear\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a5e72bf430b4acac016eac16f275289ac}\label{main_8cpp_a5e72bf430b4acac016eac16f275289ac}} 
+std\+::atomic$<$ bool $>$ {\bfseries quit} (false)
+\item 
+void \mbox{\hyperlink{main_8cpp_a3257c6ea005a0de689a419c66816d5a4}{Create\+Grid}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid)
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_grid}{Grid}} Function. Request by input rows and columns numbers and creates an empty white cells grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad317060ef474db339a931e282b3fb1ef}{Langton\+Ant}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid)
+\begin{DoxyCompactList}\small\item\em Langont \mbox{\hyperlink{class_ant}{Ant}} Function. Inserts and \mbox{\hyperlink{class_ant}{Ant}} and prints its movement pattern on console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a40aad3ea8c2e2b692aceb416c69e99b8}{Signal\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Signal Handler Function. Waits for an Input to end the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a7896a215d5d2e812d63146da0bcaeb85}{Sleep}} (unsigned miliseconds)
+\begin{DoxyCompactList}\small\item\em Sleep Function. Waits a specified amount of miliseconds. It can be used to make smooth transitions between processes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a5473c6cfd6c580642133754e141ca556}{Clear\+Screen}} (void)
+\begin{DoxyCompactList}\small\item\em Clears all console contents. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+int {\bfseries main} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Program Main File ~\newline
+ 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a5473c6cfd6c580642133754e141ca556}\label{main_8cpp_a5473c6cfd6c580642133754e141ca556}} 
+\index{main.cpp@{main.cpp}!ClearScreen@{ClearScreen}}
+\index{ClearScreen@{ClearScreen}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ClearScreen()}{ClearScreen()}}
+{\footnotesize\ttfamily void Clear\+Screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clears all console contents. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a3257c6ea005a0de689a419c66816d5a4}\label{main_8cpp_a3257c6ea005a0de689a419c66816d5a4}} 
+\index{main.cpp@{main.cpp}!CreateGrid@{CreateGrid}}
+\index{CreateGrid@{CreateGrid}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateGrid()}{CreateGrid()}}
+{\footnotesize\ttfamily void Create\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_grid}{Grid}} Function. Request by input rows and columns numbers and creates an empty white cells grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Black and White Cells \mbox{\hyperlink{class_grid}{Grid}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_ad317060ef474db339a931e282b3fb1ef}\label{main_8cpp_ad317060ef474db339a931e282b3fb1ef}} 
+\index{main.cpp@{main.cpp}!LangtonAnt@{LangtonAnt}}
+\index{LangtonAnt@{LangtonAnt}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{LangtonAnt()}{LangtonAnt()}}
+{\footnotesize\ttfamily void Langton\+Ant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Langont \mbox{\hyperlink{class_ant}{Ant}} Function. Inserts and \mbox{\hyperlink{class_ant}{Ant}} and prints its movement pattern on console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Black and White Cells \mbox{\hyperlink{class_grid}{Grid}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a40aad3ea8c2e2b692aceb416c69e99b8}\label{main_8cpp_a40aad3ea8c2e2b692aceb416c69e99b8}} 
+\index{main.cpp@{main.cpp}!SignalHandler@{SignalHandler}}
+\index{SignalHandler@{SignalHandler}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SignalHandler()}{SignalHandler()}}
+{\footnotesize\ttfamily void Signal\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Signal Handler Function. Waits for an Input to end the game. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a7896a215d5d2e812d63146da0bcaeb85}\label{main_8cpp_a7896a215d5d2e812d63146da0bcaeb85}} 
+\index{main.cpp@{main.cpp}!Sleep@{Sleep}}
+\index{Sleep@{Sleep}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Sleep()}{Sleep()}}
+{\footnotesize\ttfamily void Sleep (\begin{DoxyParamCaption}\item[{unsigned}]{miliseconds }\end{DoxyParamCaption})}
+
+
+
+Sleep Function. Waits a specified amount of miliseconds. It can be used to make smooth transitions between processes. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}

@@ -1,0 +1,85 @@
+\hypertarget{smart_vector_8hpp_source}{}\doxysection{smart\+Vector.\+hpp}
+\label{smart_vector_8hpp_source}\index{include/smartVector.hpp@{include/smartVector.hpp}}
+\mbox{\hyperlink{smart_vector_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_wrong_index}{WrongIndex}} : \textcolor{keyword}{public} std::exception \{}
+\DoxyCodeLine{19  \textcolor{keyword}{public}:}
+\DoxyCodeLine{20   \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{class_wrong_index_ad725a850eea2cfa10303c07c04715976}{what}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const} \textcolor{keywordflow}{throw}();}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{25 \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{class_wrong_index_ad725a850eea2cfa10303c07c04715976}{WrongIndex::what}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const} \textcolor{keywordflow}{throw}() \{}
+\DoxyCodeLine{26   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Wrong index. Trying to access to an illegal memory location"{}};}
+\DoxyCodeLine{27 \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{36 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_smart_vector}{SmartVector}} : \textcolor{keyword}{public} std::vector<T> \{}
+\DoxyCodeLine{38  \textcolor{keyword}{private}:}
+\DoxyCodeLine{39   \textcolor{keywordtype}{size\_t} begin\_, end\_;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41  \textcolor{keyword}{public}:}
+\DoxyCodeLine{44   \mbox{\hyperlink{class_smart_vector_a76b3d7d07c9b0413b4aee1049f61a290}{SmartVector}}(\textcolor{keywordtype}{size\_t} = 0, \textcolor{keywordtype}{size\_t} = 0);}
+\DoxyCodeLine{45   \mbox{\hyperlink{class_smart_vector_a756b7358b43d4c8904fe188bf8b4e573}{\string~SmartVector}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{50   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_af048c22fd32e27e6f24676e664ce5a6c}{Begin}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{51   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_a30fa5cfe10ff6fec641b97b512ad5dce}{Center}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{52   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_a0b33fa3327ce129260c903dd3bf3c539}{End}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{53   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}{Resize}}(\textcolor{keywordtype}{size\_t}, \textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{58   T \&\mbox{\hyperlink{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}{operator[]}}(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{59   T \&\mbox{\hyperlink{class_smart_vector_ad35ec07c4040210d8ecd4f44d1e725f0}{operator[]}}(\textcolor{keywordtype}{size\_t}) \textcolor{keyword}{const};}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{67 \mbox{\hyperlink{class_smart_vector_a76b3d7d07c9b0413b4aee1049f61a290}{SmartVector<T>::SmartVector}}(\textcolor{keywordtype}{size\_t} begin, \textcolor{keywordtype}{size\_t} end)}
+\DoxyCodeLine{68     : begin\_(begin), end\_(end) \{}
+\DoxyCodeLine{69   \mbox{\hyperlink{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}{Resize}}(begin\_, end\_);}
+\DoxyCodeLine{70 \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{73 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{74 \mbox{\hyperlink{class_smart_vector_a756b7358b43d4c8904fe188bf8b4e573}{SmartVector<T>::\string~SmartVector}}() \{\}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{79 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_af048c22fd32e27e6f24676e664ce5a6c}{SmartVector<T>::Begin}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{80   \textcolor{keywordflow}{return} begin\_;}
+\DoxyCodeLine{81 \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{85 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{86 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_a30fa5cfe10ff6fec641b97b512ad5dce}{SmartVector<T>::Center}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{87   \textcolor{keywordflow}{return} end\_ -\/ (std::vector<T>::size() / 2);}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{92 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{93 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_smart_vector_a0b33fa3327ce129260c903dd3bf3c539}{SmartVector<T>::End}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{94   \textcolor{keywordflow}{return} end\_;}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{102 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{103 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}{SmartVector<T>::Resize}}(\textcolor{keywordtype}{size\_t} begin, \textcolor{keywordtype}{size\_t} end) \{}
+\DoxyCodeLine{104   assert((end -\/ begin) >= 0);}
+\DoxyCodeLine{105   std::vector<T>::resize(end -\/ begin);}
+\DoxyCodeLine{106   begin\_ = begin;}
+\DoxyCodeLine{107   end\_ = end;}
+\DoxyCodeLine{108 \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{114 T \&\mbox{\hyperlink{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}{SmartVector<T>::operator[]}}(\textcolor{keywordtype}{size\_t} pos) \{}
+\DoxyCodeLine{115   \textcolor{keywordflow}{if} ((pos < begin\_) || (pos >= end\_)) \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_wrong_index}{WrongIndex}}();}
+\DoxyCodeLine{116   \textcolor{keywordflow}{return} ((std::vector<T> \&)*\textcolor{keyword}{this})[long(pos) -\/ begin\_];}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{123 T \&\mbox{\hyperlink{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}{SmartVector<T>::operator[]}}(\textcolor{keywordtype}{size\_t} pos)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{124   \textcolor{keywordflow}{if} ((pos < begin\_) || (pos >= end\_)) \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_wrong_index}{WrongIndex}}();}
+\DoxyCodeLine{125   \textcolor{keywordflow}{return} ((std::vector<T> \&)*\textcolor{keyword}{this})[pos -\/ begin\_];}
+\DoxyCodeLine{126 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,195 @@
+\hypertarget{class_smart_vector}{}\doxysection{Smart\+Vector\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_smart_vector}\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+
+
+Negative and Positive indexes Vector.  
+
+
+
+
+{\ttfamily \#include $<$smart\+Vector.\+hpp$>$}
+
+Inheritance diagram for Smart\+Vector\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_smart_vector}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and Destructor}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_smart_vector_a76b3d7d07c9b0413b4aee1049f61a290}{Smart\+Vector}} (size\+\_\+t=0, size\+\_\+t=0)
+\begin{DoxyCompactList}\small\item\em Default Constructor. Initializes ant behavior and attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_smart_vector_a756b7358b43d4c8904fe188bf8b4e573}\label{class_smart_vector_a756b7358b43d4c8904fe188bf8b4e573}} 
+{\bfseries $\sim$\+Smart\+Vector} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Auxiliar Public Methods}\par
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_smart_vector_af048c22fd32e27e6f24676e664ce5a6c}{Begin}} (void) const
+\begin{DoxyCompactList}\small\item\em Begin Method. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_smart_vector_a30fa5cfe10ff6fec641b97b512ad5dce}{Center}} (void) const
+\begin{DoxyCompactList}\small\item\em Center Method. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_smart_vector_a0b33fa3327ce129260c903dd3bf3c539}{End}} (void) const
+\begin{DoxyCompactList}\small\item\em End Method. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}{Resize}} (size\+\_\+t, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Resize Method. Reduces the or Increases in both directions the Smart Vector size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Operators Overloading}\par
+\begin{DoxyCompactItemize}
+\item 
+T \& \mbox{\hyperlink{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} Operator Overloading \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_smart_vector_ad35ec07c4040210d8ecd4f44d1e725f0}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t) const
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} Operator Overloading. Constant version \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Smart\+Vector$<$ T $>$}
+Negative and Positive indexes Vector. 
+
+\hypertarget{class_smart_vector_autotoc_md12}{}\doxyparagraph{Example}\label{class_smart_vector_autotoc_md12}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_smart_vector}{SmartVector<int>}} v(-\/5, 5);}
+\DoxyCodeLine{v[-\/1] = 5;}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_smart_vector_a76b3d7d07c9b0413b4aee1049f61a290}\label{class_smart_vector_a76b3d7d07c9b0413b4aee1049f61a290}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!SmartVector@{SmartVector}}
+\index{SmartVector@{SmartVector}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SmartVector()}{SmartVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\mbox{\hyperlink{class_smart_vector}{\+::\+Smart\+Vector}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{begin = {\ttfamily 0},  }\item[{size\+\_\+t}]{end = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Default Constructor. Initializes ant behavior and attributes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & First legal vector index \\
+\hline
+{\em end} & Vector end (first illegal index) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_smart_vector_af048c22fd32e27e6f24676e664ce5a6c}\label{class_smart_vector_af048c22fd32e27e6f24676e664ce5a6c}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!Begin@{Begin}}
+\index{Begin@{Begin}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::\+Begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Begin Method. 
+
+\begin{DoxyReturn}{Returns}
+Smart Vector\textquotesingle{}s Beginning 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_smart_vector_a30fa5cfe10ff6fec641b97b512ad5dce}\label{class_smart_vector_a30fa5cfe10ff6fec641b97b512ad5dce}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!Center@{Center}}
+\index{Center@{Center}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Center()}{Center()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::\+Center (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Center Method. 
+
+\begin{DoxyReturn}{Returns}
+Smart Vector\textquotesingle{}s Center 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_smart_vector_a0b33fa3327ce129260c903dd3bf3c539}\label{class_smart_vector_a0b33fa3327ce129260c903dd3bf3c539}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!End@{End}}
+\index{End@{End}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::\+End (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+End Method. 
+
+\begin{DoxyReturn}{Returns}
+Smart Vector\textquotesingle{}s Ending 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}\label{class_smart_vector_a01a1f4aa2c90f006731910deebfeed3a}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}\mbox{]} Operator Overloading 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Index of value to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value located in the index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_smart_vector_ad35ec07c4040210d8ecd4f44d1e725f0}\label{class_smart_vector_ad35ec07c4040210d8ecd4f44d1e725f0}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{[}\mbox{]} Operator Overloading. Constant version 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Index of value to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value located in the index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}\label{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}} 
+\index{SmartVector$<$ T $>$@{SmartVector$<$ T $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!SmartVector$<$ T $>$@{SmartVector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_smart_vector}{Smart\+Vector}}$<$ T $>$\+::\+Resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{begin,  }\item[{size\+\_\+t}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resize Method. Reduces the or Increases in both directions the Smart Vector size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & First legal vector index \\
+\hline
+{\em end} & Vector end (first illegal index) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_grid_a954884f1bbf8b1491d756daa4d3ed369}{Grid}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{smart_vector_8hpp}{smart\+Vector.\+hpp}}\end{DoxyCompactItemize}

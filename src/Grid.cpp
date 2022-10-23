@@ -1,6 +1,6 @@
 /// @file Grid.cpp
 /// @brief Grid Class Source Code
-#include "Grid.hpp"
+#include "../include/grid.hpp"
 
 /// @brief Default Constructor
 /// @param rows Number of rows in the grid
@@ -71,11 +71,11 @@ bool Grid::OutOfBounds(const size_t row, const size_t column) const {
 /// @param os Outputstream
 /// @return All the Cells of the Grid and the Anthill
 std::ostream &Grid::Write(std::ostream &os) const {
-  PrintBorders(os);
+  PrintUpperBorders(os);
   os << std::endl;
 
   for (size_t i = Begin(); i < End(); ++i) {
-    os << "|";
+    os << "│";
     for (size_t j = (*this)[Begin()].Begin(); j < (*this)[Begin()].End(); ++j) {
       const Ant *ant = NULL;
 
@@ -94,21 +94,36 @@ std::ostream &Grid::Write(std::ostream &os) const {
       else
         os << "X";
     }
-    os << "|" << std::endl;
+    os << "│" << std::endl;
   }
-  PrintBorders(os);
+  PrintLowerBorders(os);
   os << std::endl;
 
   return os;
 }
 
-/// @brief Write Border Method
+/// @brief Write Upper Borders Method
 /// @param os Outputstream
-/// @return The Upper and Lower Bounds of the Grid
-std::ostream &Grid::PrintBorders(std::ostream &os) const {
-  for (size_t i = 0; i <= (*this)[Begin()].size() + 1; i++) {
-    os << "■";
+/// @return The Upper Bounds of the Grid
+std::ostream &Grid::PrintUpperBorders(std::ostream &os) const {
+  os << "╔";
+  for (size_t i = 1; i <= (*this)[Begin()].size(); i++) {
+    os << "═";
   }
+  os << "╗";
+
+  return os;
+}
+
+/// @brief Write Lower Borders Method
+/// @param os Outputstream
+/// @return The Lower Bounds of the Grid
+std::ostream& Grid::PrintLowerBorders(std::ostream& os) const {
+  os << "╚";
+  for (size_t i = 1; i <= (*this)[Begin()].size(); i++) {
+    os << "═";
+  }
+  os << "╝";
 
   return os;
 }

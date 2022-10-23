@@ -6,15 +6,13 @@
 #include <cstdlib>
 #include <thread>
 
-#include "Grid.hpp"
+#include "../include/grid.hpp"
 
 // MACRO to determine if Current OS is Windows or UNIX
 #ifdef _WIN32
+
 #include <windows.h>
-
 #include <cstdio>
-
-#pragma execution_character_set("utf-8")
 
 #define CLEAR "cls"
 #else
@@ -47,11 +45,11 @@ int main(void) {
   game.join();
   signal_handler.join();
 
-  std::cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << std::endl;
-  std::cout << "|                                |" << std::endl;
-  std::cout << "|     Exiting the program...     |" << std::endl;
-  std::cout << "|                                |" << std::endl;
-  std::cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << std::endl;
+  std::cout << "╔════════════════════════════════════╗" << std::endl;
+  std::cout << "│                                    │" << std::endl;
+  std::cout << "│        Exiting the program...      │" << std::endl;
+  std::cout << "│                                    │" << std::endl;
+  std::cout << "╚════════════════════════════════════╝" << std::endl;
   return 0;
 }
 
@@ -61,11 +59,11 @@ int main(void) {
 /// @return Void
 void CreateGrid(Grid& grid) {
   int rows, columns;
-  std::cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << std::endl;
-  std::cout << "|                                    |" << std::endl;
-  std::cout << "|     INSERT THE GRID DIMENSIONS     |" << std::endl;
-  std::cout << "|                                    |" << std::endl;
-  std::cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << std::endl;
+  std::cout << "╔════════════════════════════════════╗" << std::endl;
+  std::cout << "│                                    │" << std::endl;
+  std::cout << "│     INSERT THE GRID DIMENSIONS     │" << std::endl;
+  std::cout << "│                                    │" << std::endl;
+  std::cout << "╚════════════════════════════════════╝" << std::endl;
   std::cout << "Rows    ->  ";
   std::cin >> rows;
   std::cout << "Columns ->  ";

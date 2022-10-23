@@ -1,0 +1,56 @@
+\hypertarget{ant_8hpp_source}{}\doxysection{ant.\+hpp}
+\label{ant_8hpp_source}\index{include/ant.hpp@{include/ant.hpp}}
+\mbox{\hyperlink{ant_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_wrong_index}{WrongIndex}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{14 \textcolor{keyword}{enum} \mbox{\hyperlink{ant_8hpp_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \{ black, white, NUM\_CELL \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{20 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_cell}{Cell}} \{}
+\DoxyCodeLine{21   \mbox{\hyperlink{ant_8hpp_ab87bacfdad76e61b9412d7124be44c1c}{Color}} color\_ = white;}
+\DoxyCodeLine{22   \textcolor{keywordtype}{bool} taken\_ = \textcolor{keyword}{false};}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29 \textcolor{keyword}{enum} \mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \{ up, left, down, right, NUM\_DIR \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{class_grid}{Grid}};}
+\DoxyCodeLine{36 \textcolor{keyword}{class }FiniteGrid;}
+\DoxyCodeLine{37 \textcolor{keyword}{class }InfiniteGrid;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{class_ant}{Ant}} \{}
+\DoxyCodeLine{50  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{51   \mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} dir\_;}
+\DoxyCodeLine{52   std::string sprite\_;}
+\DoxyCodeLine{53   \mbox{\hyperlink{class_grid}{Grid}} *grid\_;}
+\DoxyCodeLine{54   \textcolor{keywordtype}{size\_t} row\_, column\_;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56  \textcolor{keyword}{public}:}
+\DoxyCodeLine{59   \mbox{\hyperlink{class_ant}{Ant}}(\mbox{\hyperlink{class_grid}{Grid}} * = NULL, \textcolor{keywordtype}{size\_t} = 0, \textcolor{keywordtype}{size\_t} = 0);}
+\DoxyCodeLine{60   \mbox{\hyperlink{class_ant_a33ca6bd592236726a18a2159908e4116}{\string~Ant}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{65   \mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{class_ant_a0457a299ae04f5e7524ac05511e21aaf}{getDirection}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{66   \mbox{\hyperlink{class_grid}{Grid}} *\mbox{\hyperlink{class_ant_af27a77b0ccad6404fe8792469cfa8005}{getGridP}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ant_ad170cae0bbbd1525b6a28763280bb112}{setDirection}}(\mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}});}
+\DoxyCodeLine{72   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ant_af98e8d2225d37ecb859e9fd8da260744}{setGrid}}(\mbox{\hyperlink{class_grid}{Grid}} *);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{77   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ant_a7f63002b0c67c58c54a0a469cacc8d63}{Move}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{78   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ant_a1996173e75b84fe09322c9c5eaeb2190}{Rotate}}();}
+\DoxyCodeLine{79   \mbox{\hyperlink{struct_cell}{Cell}} \&\mbox{\hyperlink{class_ant_a1f015e8a8372512185f21fc828f58b18}{Position}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{80   std::ostream \&\mbox{\hyperlink{class_ant_a9799aee40b8c1eab10cfc7ed0ed4ef18}{Write}}(std::ostream \&) \textcolor{keyword}{const};}
+\DoxyCodeLine{81   \mbox{\hyperlink{class_ant}{Ant}} \&\mbox{\hyperlink{class_ant_aaca909873d259ea064abb0fa7d1663e0}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_ant}{Ant}} \&);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{87   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ant_aa203e54f17920c96260b80ad1130a374}{SwitchCellColor}}(\mbox{\hyperlink{struct_cell}{Cell}} \&) \textcolor{keyword}{const};}
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 std::ostream \&\mbox{\hyperlink{ant_8hpp_a47928fa804f0fb2934dd641d502b744e}{operator<<}}(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{class_ant}{Ant}} \&);}
+
+\end{DoxyCode}

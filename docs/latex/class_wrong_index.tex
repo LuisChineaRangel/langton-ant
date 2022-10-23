@@ -1,0 +1,55 @@
+\hypertarget{class_wrong_index}{}\doxysection{Wrong\+Index Class Reference}
+\label{class_wrong_index}\index{WrongIndex@{WrongIndex}}
+
+
+Exception to detect problematics indexes.  
+
+
+
+
+{\ttfamily \#include $<$smart\+Vector.\+hpp$>$}
+
+Inheritance diagram for Wrong\+Index\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_wrong_index}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char $\ast$ \mbox{\hyperlink{class_wrong_index_ad725a850eea2cfa10303c07c04715976}{what}} (void) const  throw ()
+\begin{DoxyCompactList}\small\item\em What Method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Exception to detect problematics indexes. 
+
+\hypertarget{class_wrong_index_autotoc_md11}{}\doxyparagraph{Example}\label{class_wrong_index_autotoc_md11}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t} pos == -\/1;}
+\DoxyCodeLine{size\_t (pos == -\/1) throw \mbox{\hyperlink{class_wrong_index}{WrongIndex}}();}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_wrong_index_ad725a850eea2cfa10303c07c04715976}\label{class_wrong_index_ad725a850eea2cfa10303c07c04715976}} 
+\index{WrongIndex@{WrongIndex}!what@{what}}
+\index{what@{what}!WrongIndex@{WrongIndex}}
+\doxysubsubsection{\texorpdfstring{what()}{what()}}
+{\footnotesize\ttfamily const char $\ast$ Wrong\+Index\+::what (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const throw ( ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+What Method. 
+
+\begin{DoxyReturn}{Returns}
+Exception Message 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{smart_vector_8hpp}{smart\+Vector.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,270 @@
+\hypertarget{class_grid}{}\doxysection{Grid Class Reference}
+\label{class_grid}\index{Grid@{Grid}}
+
+
+Black and White Cells \mbox{\hyperlink{class_grid}{Grid}}. On its surface the ants moves following the Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}} rules.  
+
+
+
+
+{\ttfamily \#include $<$grid.\+hpp$>$}
+
+Inheritance diagram for Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_grid}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and Destructor}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grid_a3ae45c93729c7be0c9fa938c3e3e4835}{Grid}} (size\+\_\+t=0, size\+\_\+t=0)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_grid_a3661d0a7f998caaaf8627d7a67072116}\label{class_grid_a3661d0a7f998caaaf8627d7a67072116}} 
+{\bfseries $\sim$\+Grid} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Getters}\par
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ \mbox{\hyperlink{class_ant}{Ant}} $\ast$ $>$ \mbox{\hyperlink{class_grid_a61e3603d4f0b210804b88a5986095f87}{get\+Anthill}} (void) const
+\begin{DoxyCompactList}\small\item\em Anthill Getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setters}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grid_ab3d69f56360ee63b42102fae953d2c45}{set\+Anthill}} (std\+::list$<$ \mbox{\hyperlink{class_ant}{Ant}} $\ast$ $>$)
+\begin{DoxyCompactList}\small\item\em Anthill Setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Auxiliar Public Methods}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_grid_ad3491d8ffba61fab4565d6f947574b65}{Push\+Ant}} (void)
+\begin{DoxyCompactList}\small\item\em Default Push \mbox{\hyperlink{class_ant}{Ant}} Method. Inserts a new Langton ant to the grid. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_grid_afb5b85e7841b19c46bce41190c507c3f}{Push\+Ant}} (const size\+\_\+t, const size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Push \mbox{\hyperlink{class_ant}{Ant}} Method. Inserts a new Langton ant to the grid in a specific cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a954884f1bbf8b1491d756daa4d3ed369}{Resize}} (size\+\_\+t, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Resize the grid dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_afbd0178262b4021a1da829ee099050b9}{Update}} (void)
+\begin{DoxyCompactList}\small\item\em Update Method. Moves all the ants of the grid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grid_abbca7f44ddc2b58b1ca25fee4de66b0d}{Out\+Of\+Bounds}} (const size\+\_\+t, const size\+\_\+t) const
+\begin{DoxyCompactList}\small\item\em Out\+Of\+Bounds Method. Receives two indexes given to check if they belong to the grids. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_grid_aa3426c8bc03a930e215faa49657041b5}{Write}} (std\+::ostream \&) const
+\begin{DoxyCompactList}\small\item\em Write Method. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_grid_aec233612e24cc2c4b0297115386eb148}{Print\+Upper\+Borders}} (std\+::ostream \&) const
+\begin{DoxyCompactList}\small\item\em Write Upper Borders Method. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_grid_ac3ec9e5dc7bff569ca85afb86182ab42}{Print\+Lower\+Borders}} (std\+::ostream \&) const
+\begin{DoxyCompactList}\small\item\em Write Lower Borders Method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grid_a08049a982987d307b14cba0371399bec}\label{class_grid_a08049a982987d307b14cba0371399bec}} 
+std\+::list$<$ \mbox{\hyperlink{class_ant}{Ant}} $\ast$ $>$ {\bfseries anthill\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Black and White Cells \mbox{\hyperlink{class_grid}{Grid}}. On its surface the ants moves following the Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}} rules. 
+
+\hypertarget{class_grid_autotoc_md10}{}\doxyparagraph{Example}\label{class_grid_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_grid}{Grid}} grid(10, 10);}
+\DoxyCodeLine{grid.PushAnt();}
+\DoxyCodeLine{std::cout << grid;}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grid_a3ae45c93729c7be0c9fa938c3e3e4835}\label{class_grid_a3ae45c93729c7be0c9fa938c3e3e4835}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows = {\ttfamily 0},  }\item[{size\+\_\+t}]{columns = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Default Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows in the grid \\
+\hline
+{\em columns} & Number of columns in the grid \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grid_a61e3603d4f0b210804b88a5986095f87}\label{class_grid_a61e3603d4f0b210804b88a5986095f87}} 
+\index{Grid@{Grid}!getAnthill@{getAnthill}}
+\index{getAnthill@{getAnthill}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{getAnthill()}{getAnthill()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_ant}{Ant}} $\ast$ $>$ Grid\+::get\+Anthill (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Anthill Getter. 
+
+\begin{DoxyReturn}{Returns}
+Collection of Langton\textquotesingle{}s ants on the grid 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_abbca7f44ddc2b58b1ca25fee4de66b0d}\label{class_grid_abbca7f44ddc2b58b1ca25fee4de66b0d}} 
+\index{Grid@{Grid}!OutOfBounds@{OutOfBounds}}
+\index{OutOfBounds@{OutOfBounds}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{OutOfBounds()}{OutOfBounds()}}
+{\footnotesize\ttfamily bool Grid\+::\+Out\+Of\+Bounds (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{column }\end{DoxyParamCaption}) const}
+
+
+
+Out\+Of\+Bounds Method. Receives two indexes given to check if they belong to the grids. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row to check \\
+\hline
+{\em column} & Column to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_ac3ec9e5dc7bff569ca85afb86182ab42}\label{class_grid_ac3ec9e5dc7bff569ca85afb86182ab42}} 
+\index{Grid@{Grid}!PrintLowerBorders@{PrintLowerBorders}}
+\index{PrintLowerBorders@{PrintLowerBorders}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{PrintLowerBorders()}{PrintLowerBorders()}}
+{\footnotesize\ttfamily std\+::ostream \& Grid\+::\+Print\+Lower\+Borders (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Write Lower Borders Method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Outputstream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Lower Bounds of the \mbox{\hyperlink{class_grid}{Grid}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_aec233612e24cc2c4b0297115386eb148}\label{class_grid_aec233612e24cc2c4b0297115386eb148}} 
+\index{Grid@{Grid}!PrintUpperBorders@{PrintUpperBorders}}
+\index{PrintUpperBorders@{PrintUpperBorders}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{PrintUpperBorders()}{PrintUpperBorders()}}
+{\footnotesize\ttfamily std\+::ostream \& Grid\+::\+Print\+Upper\+Borders (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Write Upper Borders Method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Outputstream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Upper Bounds of the \mbox{\hyperlink{class_grid}{Grid}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_afb5b85e7841b19c46bce41190c507c3f}\label{class_grid_afb5b85e7841b19c46bce41190c507c3f}} 
+\index{Grid@{Grid}!PushAnt@{PushAnt}}
+\index{PushAnt@{PushAnt}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{PushAnt()}{PushAnt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Grid\+::\+Push\+Ant (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Push \mbox{\hyperlink{class_ant}{Ant}} Method. Inserts a new Langton ant to the grid in a specific cell. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_ad3491d8ffba61fab4565d6f947574b65}\label{class_grid_ad3491d8ffba61fab4565d6f947574b65}} 
+\index{Grid@{Grid}!PushAnt@{PushAnt}}
+\index{PushAnt@{PushAnt}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{PushAnt()}{PushAnt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Grid\+::\+Push\+Ant (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Default Push \mbox{\hyperlink{class_ant}{Ant}} Method. Inserts a new Langton ant to the grid. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_a954884f1bbf8b1491d756daa4d3ed369}\label{class_grid_a954884f1bbf8b1491d756daa4d3ed369}} 
+\index{Grid@{Grid}!Resize@{Resize}}
+\index{Resize@{Resize}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily void Grid\+::\+Resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resize the grid dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows in the grid \\
+\hline
+{\em columns} & Number of columns in the grid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_smart_vector_af06d725d4fc386dc45d5284f7ac27077}{Smart\+Vector$<$ Smart\+Vector$<$ Cell $>$ $>$}}.
+
+\mbox{\Hypertarget{class_grid_ab3d69f56360ee63b42102fae953d2c45}\label{class_grid_ab3d69f56360ee63b42102fae953d2c45}} 
+\index{Grid@{Grid}!setAnthill@{setAnthill}}
+\index{setAnthill@{setAnthill}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{setAnthill()}{setAnthill()}}
+{\footnotesize\ttfamily void Grid\+::set\+Anthill (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_ant}{Ant}} $\ast$ $>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Anthill Setter. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_afbd0178262b4021a1da829ee099050b9}\label{class_grid_afbd0178262b4021a1da829ee099050b9}} 
+\index{Grid@{Grid}!Update@{Update}}
+\index{Update@{Update}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Grid\+::\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Update Method. Moves all the ants of the grid. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grid_aa3426c8bc03a930e215faa49657041b5}\label{class_grid_aa3426c8bc03a930e215faa49657041b5}} 
+\index{Grid@{Grid}!Write@{Write}}
+\index{Write@{Write}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily std\+::ostream \& Grid\+::\+Write (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Write Method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Outputstream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+All the Cells of the \mbox{\hyperlink{class_grid}{Grid}} and the Anthill 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{grid_8hpp}{grid.\+hpp}}\item 
+src/\mbox{\hyperlink{grid_8cpp}{grid.\+cpp}}\end{DoxyCompactItemize}

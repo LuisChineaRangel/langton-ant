@@ -1,0 +1,262 @@
+\hypertarget{class_ant}{}\doxysection{Ant Class Reference}
+\label{class_ant}\index{Ant@{Ant}}
+
+
+Represents a Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}}. It defines the ant behavior and stores the current position and direction.  
+
+
+
+
+{\ttfamily \#include $<$ant.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and Destructor}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ant_ad855fa991de986e37cc5fbaae99b9388}{Ant}} (\mbox{\hyperlink{class_grid}{Grid}} $\ast$=NULL, size\+\_\+t=0, size\+\_\+t=0)
+\begin{DoxyCompactList}\small\item\em Default Constructor. Initializes ant behavior and attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ant_a33ca6bd592236726a18a2159908e4116}\label{class_ant_a33ca6bd592236726a18a2159908e4116}} 
+{\bfseries $\sim$\+Ant} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Erases all contents and the ant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Getters}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{class_ant_a0457a299ae04f5e7524ac05511e21aaf}{get\+Direction}} (void) const
+\begin{DoxyCompactList}\small\item\em Direction Getter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid}{Grid}} $\ast$ \mbox{\hyperlink{class_ant_af27a77b0ccad6404fe8792469cfa8005}{get\+GridP}} (void) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_grid}{Grid}} Getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setters}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ant_ad170cae0bbbd1525b6a28763280bb112}{set\+Direction}} (\mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}})
+\begin{DoxyCompactList}\small\item\em Direction Setter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ant_af98e8d2225d37ecb859e9fd8da260744}{set\+Grid}} (\mbox{\hyperlink{class_grid}{Grid}} $\ast$)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_grid}{Grid}} Setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Auxiliar Public Methods}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_ant_a7f63002b0c67c58c54a0a469cacc8d63}{Move}} (void)
+\begin{DoxyCompactList}\small\item\em Move Method. Changes the ant current position and its color, and rotates to its new direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ant_a1996173e75b84fe09322c9c5eaeb2190}{Rotate}} ()
+\begin{DoxyCompactList}\small\item\em Rotate method. Changes ant current direction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cell}{Cell}} \& \mbox{\hyperlink{class_ant_a1f015e8a8372512185f21fc828f58b18}{Position}} (void)
+\begin{DoxyCompactList}\small\item\em Position Method. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_ant_a9799aee40b8c1eab10cfc7ed0ed4ef18}{Write}} (std\+::ostream \&) const
+\begin{DoxyCompactList}\small\item\em Write Method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ant}{Ant}} \& \mbox{\hyperlink{class_ant_aaca909873d259ea064abb0fa7d1663e0}{operator=}} (const \mbox{\hyperlink{class_ant}{Ant}} \&)
+\begin{DoxyCompactList}\small\item\em Assignation operator Overload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Protected Member Functions}
+\begin{Indent}\textbf{ Auxiliar Protected Methods}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ant_aa203e54f17920c96260b80ad1130a374}{Switch\+Cell\+Color}} (\mbox{\hyperlink{struct_cell}{Cell}} \&) const
+\begin{DoxyCompactList}\small\item\em Switch \mbox{\hyperlink{struct_cell}{Cell}} Color Method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ant_aeaf9124fa5bd75f87a49b57f396e4949}\label{class_ant_aeaf9124fa5bd75f87a49b57f396e4949}} 
+\mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} {\bfseries dir\+\_\+}
+\item 
+\mbox{\Hypertarget{class_ant_a47dfe5600a7648d616b314cb96cc8340}\label{class_ant_a47dfe5600a7648d616b314cb96cc8340}} 
+std\+::string {\bfseries sprite\+\_\+}
+\item 
+\mbox{\Hypertarget{class_ant_a1b30acb2132678e5a8656dd561b9c987}\label{class_ant_a1b30acb2132678e5a8656dd561b9c987}} 
+\mbox{\hyperlink{class_grid}{Grid}} $\ast$ {\bfseries grid\+\_\+}
+\item 
+\mbox{\Hypertarget{class_ant_a5d19e1986989115d2d2291b991e162c1}\label{class_ant_a5d19e1986989115d2d2291b991e162c1}} 
+size\+\_\+t {\bfseries row\+\_\+}
+\item 
+\mbox{\Hypertarget{class_ant_a4b39ea4a25df7e384b125f8b11fafff9}\label{class_ant_a4b39ea4a25df7e384b125f8b11fafff9}} 
+size\+\_\+t {\bfseries column\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a Langton\textquotesingle{}s \mbox{\hyperlink{class_ant}{Ant}}. It defines the ant behavior and stores the current position and direction. 
+
+\hypertarget{class_ant_autotoc_md9}{}\doxyparagraph{Example}\label{class_ant_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_ant}{Ant}} langton;}
+\DoxyCodeLine{langton.move(grid);}
+\DoxyCodeLine{std::cout << langton;}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ant_ad855fa991de986e37cc5fbaae99b9388}\label{class_ant_ad855fa991de986e37cc5fbaae99b9388}} 
+\index{Ant@{Ant}!Ant@{Ant}}
+\index{Ant@{Ant}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{Ant()}{Ant()}}
+{\footnotesize\ttfamily Ant\+::\+Ant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} $\ast$}]{grid = {\ttfamily NULL},  }\item[{size\+\_\+t}]{row = {\ttfamily 0},  }\item[{size\+\_\+t}]{column = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Default Constructor. Initializes ant behavior and attributes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer of \mbox{\hyperlink{class_grid}{Grid}} where ant is located \\
+\hline
+{\em row} & \mbox{\hyperlink{class_ant}{Ant}} row on grid \\
+\hline
+{\em column} & \mbox{\hyperlink{class_ant}{Ant}} column on grid \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ant_a0457a299ae04f5e7524ac05511e21aaf}\label{class_ant_a0457a299ae04f5e7524ac05511e21aaf}} 
+\index{Ant@{Ant}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} Ant\+::get\+Direction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Direction Getter. 
+
+\begin{DoxyReturn}{Returns}
+Which direction is taking the ant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_af27a77b0ccad6404fe8792469cfa8005}\label{class_ant_af27a77b0ccad6404fe8792469cfa8005}} 
+\index{Ant@{Ant}!getGridP@{getGridP}}
+\index{getGridP@{getGridP}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{getGridP()}{getGridP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid}{Grid}} $\ast$ Ant\+::get\+GridP (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_grid}{Grid}} Getter. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_ant}{Ant}}\textquotesingle{}s \mbox{\hyperlink{class_grid}{Grid}} Location 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_a7f63002b0c67c58c54a0a469cacc8d63}\label{class_ant_a7f63002b0c67c58c54a0a469cacc8d63}} 
+\index{Ant@{Ant}!Move@{Move}}
+\index{Move@{Move}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Ant\+::\+Move (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Move Method. Changes the ant current position and its color, and rotates to its new direction. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_aaca909873d259ea064abb0fa7d1663e0}\label{class_ant_aaca909873d259ea064abb0fa7d1663e0}} 
+\index{Ant@{Ant}!operator=@{operator=}}
+\index{operator=@{operator=}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ant}{Ant}} \& Ant\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ant}{Ant}} \&}]{ant }\end{DoxyParamCaption})}
+
+
+
+Assignation operator Overload. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant} & Assigned ant to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_ant}{Ant}} with new values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_a1f015e8a8372512185f21fc828f58b18}\label{class_ant_a1f015e8a8372512185f21fc828f58b18}} 
+\index{Ant@{Ant}!Position@{Position}}
+\index{Position@{Position}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cell}{Cell}} \& Ant\+::\+Position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Position Method. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_cell}{Cell}} where \mbox{\hyperlink{class_ant}{Ant}} is located 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_a1996173e75b84fe09322c9c5eaeb2190}\label{class_ant_a1996173e75b84fe09322c9c5eaeb2190}} 
+\index{Ant@{Ant}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}}
+{\footnotesize\ttfamily void Ant\+::\+Rotate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Rotate method. Changes ant current direction. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_ad170cae0bbbd1525b6a28763280bb112}\label{class_ant_ad170cae0bbbd1525b6a28763280bb112}} 
+\index{Ant@{Ant}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{setDirection()}{setDirection()}}
+{\footnotesize\ttfamily void Ant\+::set\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ant_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Direction Setter. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_af98e8d2225d37ecb859e9fd8da260744}\label{class_ant_af98e8d2225d37ecb859e9fd8da260744}} 
+\index{Ant@{Ant}!setGrid@{setGrid}}
+\index{setGrid@{setGrid}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{setGrid()}{setGrid()}}
+{\footnotesize\ttfamily void Ant\+::set\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_grid}{Grid}} Setter. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ant_aa203e54f17920c96260b80ad1130a374}\label{class_ant_aa203e54f17920c96260b80ad1130a374}} 
+\index{Ant@{Ant}!SwitchCellColor@{SwitchCellColor}}
+\index{SwitchCellColor@{SwitchCellColor}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{SwitchCellColor()}{SwitchCellColor()}}
+{\footnotesize\ttfamily void Ant\+::\+Switch\+Cell\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}} \&}]{cell }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Switch \mbox{\hyperlink{struct_cell}{Cell}} Color Method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & \mbox{\hyperlink{struct_cell}{Cell}} to switch \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ant_a9799aee40b8c1eab10cfc7ed0ed4ef18}\label{class_ant_a9799aee40b8c1eab10cfc7ed0ed4ef18}} 
+\index{Ant@{Ant}!Write@{Write}}
+\index{Write@{Write}!Ant@{Ant}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily std\+::ostream \& Ant\+::\+Write (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Write Method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Outputstream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_ant}{Ant}}\textquotesingle{}s Sprite 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ant_8hpp}{ant.\+hpp}}\item 
+src/\mbox{\hyperlink{ant_8cpp}{ant.\+cpp}}\end{DoxyCompactItemize}

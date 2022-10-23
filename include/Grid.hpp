@@ -4,8 +4,8 @@
 
 #include <list>
 
-#include "Ant.hpp"
-#include "SmartVector.hpp"
+#include "ant.hpp"
+#include "smartVector.hpp"
 
 /// @class Grid
 /// @brief Black and White Cells Grid. On its surface the ants moves following
@@ -46,7 +46,8 @@ class Grid : public SmartVector<SmartVector<Cell>> {
   void Update(void);
   bool OutOfBounds(const size_t, const size_t) const;
   std::ostream &Write(std::ostream &) const;
-  std::ostream &PrintBorders(std::ostream &) const;
+  std::ostream &PrintUpperBorders(std::ostream &) const;
+  std::ostream& PrintLowerBorders(std::ostream&) const;
   /// @}
 };
 

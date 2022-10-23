@@ -1,9 +1,9 @@
 /// @file Ant.cpp
 /// @brief Ant Class Source Code
-#include "Ant.hpp"
+#include "../include/ant.hpp"
 
-#include "Grid.hpp"
-#include "SmartVector.hpp"
+#include "../include/grid.hpp"
+#include "../include/smartVector.hpp"
 
 ///////////////////////////////////////////////////////
 // CLASS MEMBER FUNCTIONS

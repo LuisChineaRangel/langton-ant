@@ -1,0 +1,39 @@
+\hypertarget{grid_8hpp_source}{}\doxysection{grid.\+hpp}
+\label{grid_8hpp_source}\index{include/grid.hpp@{include/grid.hpp}}
+\mbox{\hyperlink{grid_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ant_8hpp}{ant.hpp}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{smart_vector_8hpp}{smartVector.hpp}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_grid}{Grid}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_smart_vector}{SmartVector}}<SmartVector<Cell>> \{}
+\DoxyCodeLine{20  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21   std::list<Ant *> anthill\_;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23  \textcolor{keyword}{public}:}
+\DoxyCodeLine{26   \mbox{\hyperlink{class_grid}{Grid}}(\textcolor{keywordtype}{size\_t} = 0, \textcolor{keywordtype}{size\_t} = 0);}
+\DoxyCodeLine{27   \mbox{\hyperlink{class_grid_a3661d0a7f998caaaf8627d7a67072116}{\string~Grid}}();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{32   std::list<Ant *> \mbox{\hyperlink{class_grid_a61e3603d4f0b210804b88a5986095f87}{getAnthill}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{37   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_ab3d69f56360ee63b42102fae953d2c45}{setAnthill}}(std::list<Ant *>);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{42   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_ad3491d8ffba61fab4565d6f947574b65}{PushAnt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{43   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_ad3491d8ffba61fab4565d6f947574b65}{PushAnt}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_a954884f1bbf8b1491d756daa4d3ed369}{Resize}}(\textcolor{keywordtype}{size\_t}, \textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{46   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_afbd0178262b4021a1da829ee099050b9}{Update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{47   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_grid_abbca7f44ddc2b58b1ca25fee4de66b0d}{OutOfBounds}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}) \textcolor{keyword}{const};}
+\DoxyCodeLine{48   std::ostream \&\mbox{\hyperlink{class_grid_aa3426c8bc03a930e215faa49657041b5}{Write}}(std::ostream \&) \textcolor{keyword}{const};}
+\DoxyCodeLine{49   std::ostream \&\mbox{\hyperlink{class_grid_aec233612e24cc2c4b0297115386eb148}{PrintUpperBorders}}(std::ostream \&) \textcolor{keyword}{const};}
+\DoxyCodeLine{50   std::ostream\& \mbox{\hyperlink{class_grid_ac3ec9e5dc7bff569ca85afb86182ab42}{PrintLowerBorders}}(std::ostream\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 std::ostream \&\mbox{\hyperlink{grid_8hpp_abb95266f822a60a27502f796da18aeaa}{operator<<}}(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{class_grid}{Grid}} \&);}
+
+\end{DoxyCode}
