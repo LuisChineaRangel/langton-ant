@@ -5,6 +5,8 @@
 
 ---
 
+https://user-images.githubusercontent.com/45295283/197367303-6d8bdd8f-50ec-436d-9a3e-30e88560c219.mp4
+
 ## Introduction 📋
 
 Langton's ant is a two-dimensional universal Turing machine with a very simple set of rules but complex emergent behavior. It was invented by Chris Langton in 1986.
